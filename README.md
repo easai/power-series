@@ -5,4 +5,4 @@ Power Series
 
 Taylor Expansion
 - [Jupyter Notebook (Interactive)](https://github.com/easai/power-series/blob/main/taylor.ipynb)
-- [HTML Version](https://github.com/easai/power-series/blob/main/taylor.html)
+- [HTML Version](https://easai.github.io/power-series/taylor.html)
