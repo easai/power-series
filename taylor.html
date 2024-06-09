@@ -7703,7 +7703,8 @@ $$</p>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">f</span><span class="o">=</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">z</span><span class="p">)</span>
-<span class="n">series</span><span class="p">(</span><span class="n">exp</span><span class="p">(</span><span class="n">z</span><span class="o">**-</span><span class="mi">1</span><span class="p">),</span><span class="n">z</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">g</span><span class="o">=</span><span class="n">series</span><span class="p">(</span><span class="n">exp</span><span class="p">(</span><span class="n">z</span><span class="p">),</span><span class="n">z</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="n">z</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7716,7 +7717,7 @@ $$</p>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[ ]:</div>
 <div class="jp-RenderedLatex jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/latex" tabindex="0">
-$\displaystyle e^{\frac{1}{z}}$
+$\displaystyle \frac{1}{24 z^{4}} + \frac{1}{6 z^{3}} + \frac{1}{2 z^{2}} + \frac{1}{z} + 1 + O\left(\frac{1}{z^{5}}; z\rightarrow \infty\right)$
 </div>
 </div>
 </div>
