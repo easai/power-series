@@ -3,7 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>taylor</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>laurent</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -7516,14 +7516,34 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Taylor-Expansion">Taylor Expansion<a class="anchor-link" href="#Taylor-Expansion">¶</a></h1><p>Using the same formula for real numbers, the Taylor expansion formula can be applied complex functions. A complex regular function can be expressed uniquely as following power series.</p>
+<h2 id="Laurant-Expansion">Laurant Expansion<a class="anchor-link" href="#Laurant-Expansion">¶</a></h2><p>Laurent expansion, represents a complex function as a power series that includes terms of negative degree. Unlike Taylor series, which only considers positive powers, the Laurent series accounts for both positive and negative powers.</p>
 <p>$$
-\begin{align}
-f(z)&amp;=\sum^\infty_{n=0} {f^{(n)}(a)\over n!}(z-a)^n\\
-&amp;=f(a)+f'(a)(z-a)+{f''(a)\over 2!}(z-a)^2+{f'''(a)\over 3!}(z-a)^3+\cdots
-\end{align}
+f(z)=\sum_{n=-\infty}^{\infty} a_n(z-c)^n
 $$</p>
-<p>Let us calculate the Taylor expansion of $ f(z)=e^z $ around $ z=1 $.</p>
+<p>The part of the series that contains negative powers is called the principal part.</p>
+<p>$$
+\oint_C f(z)dz=\sum_{n=-\infty}^\infty a_n\oint_C (z-c)^ndz
+$$
+When $c$ is an isolated singularity, the following holds.
+$$
+\oint_C (z-c)^n dz=
+\begin{cases}
+2\pi i &amp; n=-1\\
+0 &amp; n\neq -1
+\end{cases}
+$$</p>
+<p>$a_{-1}$ is called residue.</p>
+<p>$$
+a_{-1}={1\over 2\pi i}\oint_C f(z)dz
+$$</p>
+<p>When the isolated singularity is nth pole,</p>
+<p>$$
+(z-c)^n f(z)=\sum_{k=0}^\infty a_{k-n}(z-c)^k
+$$
+and</p>
+<p>$$
+a_{-1}={1\over (n-1)!}\lim_{z\to a}{d^{n-1}\over dz^{n-1}}[(z-a)^n f(z)]
+$$</p>
 </div>
 </div>
 </div>
@@ -7535,10 +7555,10 @@ $$</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">symbols</span><span class="p">,</span> <span class="n">series</span><span class="p">,</span> <span class="n">exp</span><span class="p">,</span> <span class="n">I</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">residue</span><span class="p">,</span> <span class="n">I</span>
+<span class="kn">from</span> <span class="nn">sympy.abc</span> <span class="kn">import</span> <span class="n">z</span>
 
-<span class="n">z</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">"z"</span><span class="p">)</span>
-<span class="n">series</span><span class="p">(</span><span class="n">exp</span><span class="p">(</span><span class="n">z</span><span class="p">),</span> <span class="n">z</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">residue</span><span class="p">(</span><span class="n">z</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="n">z</span><span class="o">-</span><span class="n">I</span><span class="p">),</span><span class="n">z</span><span class="p">,</span><span class="n">I</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7551,213 +7571,7 @@ $$</p>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[ ]:</div>
 <div class="jp-RenderedLatex jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/latex" tabindex="0">
-$\displaystyle e + e \left(z - 1\right) + \frac{e \left(z - 1\right)^{2}}{2} + \frac{e \left(z - 1\right)^{3}}{6} + \frac{e \left(z - 1\right)^{4}}{24} + O\left(\left(z - 1\right)^{5}; z\rightarrow 1\right)$
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Let us calculate the Taylor expansion of $ f(z)=z^2 $ around $ z=i $.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">series</span><span class="p">(</span><span class="n">z</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="n">I</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[ ]:</div>
-<div class="jp-RenderedLatex jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/latex" tabindex="0">
-$\displaystyle \left(z - i\right)^{2} + 2 i \left(z - i\right) - 1$
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Here is the case with $ f(z)={1\over z-2i}$ around $ z=0 $.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">series</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">z</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">I</span><span class="p">),</span><span class="n">z</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[ ]:</div>
-<div class="jp-RenderedLatex jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/latex" tabindex="0">
-$\displaystyle \frac{i}{2} + \frac{z}{4} - \frac{i z^{2}}{8} - \frac{z^{3}}{16} + \frac{i z^{4}}{32} + O\left(z^{5}\right)$
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>In case with non-regular function with isolated singularities, Laurent series can be used that include negative terms of the series.</p>
-<p>$$
-f(z)=\sum^\infty_{n=-\infty} {f^{(n)}(a)\over n!}(z-a)^n
-$$</p>
-<p>The <code>series()</code> function can be used for Laurent series. The following calculates the Laurent series of the function that includes the negative terms.</p>
-<p>$$
-f(z)={e^z\over z^2}
-$$</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">"z"</span><span class="p">)</span>
-<span class="n">f</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">/</span> <span class="n">z</span><span class="o">**</span><span class="mi">2</span>
-<span class="n">series</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[ ]:</div>
-<div class="jp-RenderedLatex jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/latex" tabindex="0">
-$\displaystyle \frac{1}{z^{2}} + \frac{1}{z} + \frac{1}{2} + \frac{z}{6} + \frac{z^{2}}{24} + \frac{z^{3}}{120} + \frac{z^{4}}{720} + O\left(z^{5}\right)$
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Let us calculate the Laurent series of the following function using <code>series()</code>.</p>
-<p>$$
-f(z)={\cos(z)\over z^2}
-$$</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">cos</span>
-
-
-<span class="n">f</span> <span class="o">=</span> <span class="n">cos</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">/</span> <span class="n">z</span><span class="o">**</span><span class="mi">2</span>
-<span class="n">series</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[ ]:</div>
-<div class="jp-RenderedLatex jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/latex" tabindex="0">
-$\displaystyle \frac{1}{z^{2}} - \frac{1}{2} + \frac{z^{2}}{24} - \frac{z^{4}}{720} + O\left(z^{5}\right)$
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>The 'series()' does not calculate the following function. First, convert $e^z$ to power series then use <code>subs()</code> and replace $z$ with ${1\over z}$.</p>
-<p>$$
-f(z)=e^{1\over z}
-$$</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">z</span><span class="p">)</span>
-<span class="n">g</span> <span class="o">=</span> <span class="n">series</span><span class="p">(</span><span class="n">exp</span><span class="p">(</span><span class="n">z</span><span class="p">),</span> <span class="n">z</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">z</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[ ]:</div>
-<div class="jp-RenderedLatex jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/latex" tabindex="0">
-$\displaystyle \frac{1}{24 z^{4}} + \frac{1}{6 z^{3}} + \frac{1}{2 z^{2}} + \frac{1}{z} + 1 + O\left(\frac{1}{z^{5}}; z\rightarrow \infty\right)$
+$\displaystyle -1$
 </div>
 </div>
 </div>
