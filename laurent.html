@@ -7534,15 +7534,39 @@ $$
 $$</p>
 <p>$a_{-1}$ is called residue.</p>
 <p>$$
-a_{-1}={1\over 2\pi i}\oint_C f(z)dz
+\begin{align*}
+a_{-1}=\operatorname{Res}_{z=c} f(z)&amp;={1\over 2\pi i}\oint_C f(z)dz\\
+\oint_C f(z)dz &amp;= 2\pi i\cdot \operatorname{Res}_{z=c}
+\end{align*}
 $$</p>
-<p>When the isolated singularity is nth pole,</p>
+<p>When the isolated singularity is a pole of order $n$,</p>
 <p>$$
 (z-c)^n f(z)=\sum_{k=0}^\infty a_{k-n}(z-c)^k
 $$
 and</p>
 <p>$$
-a_{-1}={1\over (n-1)!}\lim_{z\to a}{d^{n-1}\over dz^{n-1}}[(z-a)^n f(z)]
+\operatorname{Res}_{z=c} f(z)={1\over (n-1)!}\lim_{z\to c}{d^{n-1}\over dz^{n-1}}[(z-c)^n f(z)]
+$$</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Let us calculate the integral over a circle centered at $(0,i)$ with radius 1.</p>
+<p>$$
+f(z)={z^2\over (z-i)}
+$$</p>
+<p>This function has an isolated singularity at $(0,i)$ and the singularity is a pole of order 1.</p>
+<p>$$
+\begin{align*}
+\operatorname{Res}_{z=i} f(z)&amp;=\lim_{z\to i}(z-i)\cdot {z^2\over (z-i)}=-1\\
+\oint_C f(z)dz &amp;= -2\pi i
+\end{align*}
 $$</p>
 </div>
 </div>
@@ -7559,6 +7583,58 @@ $$</p>
 <span class="kn">from</span> <span class="nn">sympy.abc</span> <span class="kn">import</span> <span class="n">z</span>
 
 <span class="n">residue</span><span class="p">(</span><span class="n">z</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="n">z</span><span class="o">-</span><span class="n">I</span><span class="p">),</span><span class="n">z</span><span class="p">,</span><span class="n">I</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[ ]:</div>
+<div class="jp-RenderedLatex jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/latex" tabindex="0">
+$\displaystyle -1$
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">residue</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">z</span><span class="o">*</span><span class="p">(</span><span class="n">z</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span><span class="n">z</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[ ]:</div>
+<div class="jp-RenderedLatex jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/latex" tabindex="0">
+$\displaystyle 1$
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">residue</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">z</span><span class="o">*</span><span class="p">(</span><span class="n">z</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span><span class="n">z</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
