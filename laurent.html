@@ -7557,11 +7557,11 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Let us calculate the integral over a circle centered at $(0,i)$ with radius 1.</p>
+<p>Let us calculate the integral over a circle centered at $i$ with radius 1.</p>
 <p>$$
 f(z)={z^2\over (z-i)}
 $$</p>
-<p>This function has an isolated singularity at $(0,i)$ and the singularity is a pole of order 1.</p>
+<p>This function has an isolated singularity at $z=i$ and the singularity is a pole of order 1.</p>
 <p>$$
 \begin{align*}
 \operatorname{Res}_{z=i} f(z)&amp;=\lim_{z\to i}(z-i)\cdot {z^2\over (z-i)}=-1\\
@@ -7597,6 +7597,24 @@ $$</p>
 <div class="jp-RenderedLatex jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/latex" tabindex="0">
 $\displaystyle -1$
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Let us calculate the integral over a circle centered at origin with radius 10.</p>
+<p>$$
+f(z)={1\over z(z-1)^2}
+$$</p>
+<p>This function has an isolated singularity at $z=0$ and the singularity is a pole of order 1 and has another isolated singularity at $z=1$ and the singularity is a pole of order 2.</p>
+<p>$$
+\oint {1\over z(z-1)^2} dz = 2\pi i(1-1)=0
+$$</p>
 </div>
 </div>
 </div>
@@ -7648,6 +7666,84 @@ $\displaystyle 1$
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[ ]:</div>
 <div class="jp-RenderedLatex jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/latex" tabindex="0">
 $\displaystyle -1$
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Let us calculate the integral over a half circle centered at origin with radius 10 in the positive plane.</p>
+<p>$$
+f(z)={z-2\over (z^2+1)^2}
+$$</p>
+<p>This function has an isolated singularity at $z=i$ and the singularity is a pole of order 2.</p>
+<p>$$
+\begin{align*}
+\operatorname{Res}_{z=i} f(z)&amp;=(z-i)^2\cdot {z-2\over (z^2+1)^2}\\
+&amp;=\lim_{z\to i}{d\over dz}{z-2\over (z+i)^2}\\
+&amp;=\lim_{z\to i}{(z+i)^2-2(z+i)(z-2)\over (z+i)^4}\\
+&amp;=-{1\over 2i}\\
+\oint_C f(z)dz &amp;= 2\pi i\cdot -{1\over 2i}\\
+&amp;=-\pi
+\end{align*}
+$$</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">residue</span><span class="p">((</span><span class="n">z</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">((</span><span class="n">z</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span><span class="n">z</span><span class="p">,</span><span class="n">I</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[ ]:</div>
+<div class="jp-RenderedLatex jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/latex" tabindex="0">
+$\displaystyle \frac{i}{2}$
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span> 
+<span class="n">sympy</span><span class="o">.</span><span class="n">diff</span><span class="p">((</span><span class="n">z</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">z</span><span class="o">+</span><span class="n">I</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[ ]:</div>
+<div class="jp-RenderedLatex jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/latex" tabindex="0">
+$\displaystyle - \frac{2 \left(z - 2\right)}{\left(z + i\right)^{3}} + \frac{1}{\left(z + i\right)^{2}}$
 </div>
 </div>
 </div>
