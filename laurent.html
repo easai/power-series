@@ -7611,9 +7611,17 @@ $\displaystyle -1$
 <p>$$
 f(z)={1\over z(z-1)^2}
 $$</p>
-<p>This function has an isolated singularity at $z=0$ and the singularity is a pole of order 1 and has another isolated singularity at $z=1$ and the singularity is a pole of order 2.</p>
-<p>$$
-\oint {1\over z(z-1)^2} dz = 2\pi i(1-1)=0
+<p>This function has an isolated singularity at $z=0$ and the singularity is a pole of order 1 and has another isolated singularity at $z=1$ and the singularity is a pole of order 2.
+$$
+\begin{align*}
+\operatorname{Res}_{z=0} f(z)&amp;=\lim_{z\to 0} z\cdot {1\over z(z-1)^2}\\
+&amp;=1\\
+\operatorname{Res}_{z=1} f(z)&amp;=\lim_{z\to 1} {d\over dz}(z-1)^2\cdot {1\over z(z-1)^2}\\
+&amp;=\lim_{z\to 1}(-{1\over z^2})\\
+&amp;=-1\\
+\oint {1\over z(z-1)^2} dz &amp;= 2\pi i(1-1)\\
+&amp;=0
+\end{align*}
 $$</p>
 </div>
 </div>
