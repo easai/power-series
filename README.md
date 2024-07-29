@@ -10,3 +10,6 @@ Taylor Expansion
 Laurent Expansion
 - [Jupyter Notebook (Interactive)](https://github.com/easai/power-series/blob/main/laurent.ipynb)
 - [HTML Version](https://easai.github.io/power-series/laurent.html)
+
+References:
+- [Laurent series (Wikipedia)](https://en.wikipedia.org/wiki/Laurent_series)
