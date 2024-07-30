@@ -13,3 +13,4 @@ Laurent Expansion
 
 References:
 - [Laurent series (Wikipedia)](https://en.wikipedia.org/wiki/Laurent_series)
+- Spiegel, M., Lipschutz, S., Schiller, J., & Spellman, D. (2009). Schaum’s Outline of Complex Variables, 2ed. Mcgraw-hill.
