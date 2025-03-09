@@ -1,14 +1,15 @@
 # power-series
 Power Series
-- [Jupyter Notebook (Interactive)](https://github.com/easai/power-series/blob/main/power-series.ipynb)
+- [Jupyter Notebook](https://github.com/easai/power-series/blob/main/power-series.ipynb)
 - [HTML Version](https://easai.github.io/power-series/power-series.html)
+- [In Chinese](https://github.com/easai/power-series/blob/main/README-zh.md)
 
 Taylor Expansion
-- [Jupyter Notebook (Interactive)](https://github.com/easai/power-series/blob/main/taylor.ipynb)
+- [Jupyter Notebook](https://github.com/easai/power-series/blob/main/taylor.ipynb)
 - [HTML Version](https://easai.github.io/power-series/taylor.html)
 
 Laurent Expansion
-- [Jupyter Notebook (Interactive)](https://github.com/easai/power-series/blob/main/laurent.ipynb)
+- [Jupyter Notebook](https://github.com/easai/power-series/blob/main/laurent.ipynb)
 - [HTML Version](https://easai.github.io/power-series/laurent.html)
 
 References:
