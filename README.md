@@ -1,4 +1,7 @@
 # power-series
+
+The project includes the definitions, convergence properties, and algebraic manipulations of power series, Taylor series, and Laurent series.
+
 Power Series
 - [Jupyter Notebook](https://github.com/easai/power-series/blob/main/power-series.ipynb)
 - [HTML Version](https://easai.github.io/power-series/power-series.html)
